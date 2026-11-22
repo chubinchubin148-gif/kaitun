@@ -19389,10 +19389,10 @@ if true then
         return true
       end
 
-      tbl5.CursedDualKatana = false
-      tbl5.SoulGuitar = false
-      tbl5.FarmBoneForx2EXP = false
-      tbl5.WebhookEnabled = false
+      tbl5.CursedDualKatana = true
+      tbl5.SoulGuitar = true
+      tbl5.FarmBoneForx2EXP = true
+      tbl5.WebhookEnabled = true
       tbl5.WebhookUrl = ""
       tbl5.WebhookIntervalMinutes = 5
     end
