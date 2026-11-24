@@ -4,8 +4,8 @@ getgenv().__BANANA_SCRIPT_ROUTE = "kaigod"
 Config = {
     Team = "Pirates",
     FastTween = true,
-    AutoHop = true,
-    HopWhenIdle = true,
+    AutoHop = false,
+    HopWhenIdle = false,
     FpsBoost = true,
     FpsCap = 60,
   RemoveSFX = true,
@@ -17,10 +17,10 @@ Config = {
     Soru = true,
     Observation = true
   },
-    CursedDualKatana = true,
-    SoulGuitar = true,
-    FarmBoneForx2EXP = true,
-    WebhookEnabled = true,
+    CursedDualKatana = false,
+    SoulGuitar = false,
+    FarmBoneForx2EXP = false,
+    WebhookEnabled = false,
     WebhookUrl = "",
     WebhookIntervalMinutes = 5
 }
@@ -3293,6 +3293,22 @@ if true then
 
                 return hasChanged
               end
+
+              task.spawn(function()
+                while true do
+                  local character = LocalPlayer.Character
+
+                  if character then
+                    if not character:FindFirstChild("HasBuso") then
+                      pcall(function()
+                        Remotes.CommF_:InvokeServer("Buso")
+                      end)
+                    end
+                  end
+
+                  task.wait(2)
+                end
+              end)
 
               HasLightningBolt = function(arg)
                 if ScriptStorage then
@@ -17499,10 +17515,10 @@ if true then
         return true
       end
 
-      configSettings.CursedDualKatana = true
-      configSettings.SoulGuitar = true
-      configSettings.FarmBoneForx2EXP = true
-      configSettings.WebhookEnabled = true
+      configSettings.CursedDualKatana = false
+      configSettings.SoulGuitar = false
+      configSettings.FarmBoneForx2EXP = false
+      configSettings.WebhookEnabled = false
       configSettings.WebhookUrl = ""
       configSettings.WebhookIntervalMinutes = 5
     end
